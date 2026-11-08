@@ -1,0 +1,52 @@
+# Three Departments & Six Ministries (三省六部制) — bundle patch
+#
+# This file is inserted into the profile composition when the bundle is
+# installed. Override any value from your own profile patch layer by
+# targeting the same id (`sansheng-liubu`); a matching override replaces the
+# complete `config` object, so copy the whole block you want to change.
+- insert:
+    - id: sansheng-liubu
+      name: 'dsh-sanshengliubu'
+      config:
+        # Master switch. `false` registers no tools and never spawns an agent.
+        enable: true
+
+        # Ask the Host before any run that may create subagents.
+        requireApproval: true
+
+        # Task grading. Only L2 enables the full three-department workflow.
+        complexityThreshold: 3
+        l1Threshold: 1
+        complexityKeywords: []
+
+        # Delegation limits.
+        maxSubagents: 4
+        maxRetries: 1
+        maxReviewRounds: 2
+
+        # Budget. `taskBudget` is a token ceiling; `taskBudgetUsd` is a cost
+        # ceiling that is only enforced for models listed in `modelPrices`.
+        taskBudget: 400000
+        taskBudgetUsd: 0
+        modelPrices: {}
+        timeLimit: 1800
+
+        # Workflow switches.
+        parallelExecution: true
+        independentReview: true
+        reviewLevels: ['L1', 'L2']
+        requirePlanReview: true
+        auditLog: true
+        autoEscalation: false
+
+        # Role routing. Each role may pin a provider/model route or an agent
+        # preset; omitted values inherit the parent agent rather than guessing.
+        plannerAgent: {}
+        executorAgent: {}
+        reviewerAgent: {}
+        subagentProvider: spawn
+        maxDepth: 1
+
+        # Storage. Empty `stateDir` resolves to $DSH_HOME/sansheng-liubu.
+        stateDir: ''
+        historyLimit: 100

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "省部调度 · Three Departments",
+    "description": "Splits complex tasks into reviewed, dependency-ordered subtasks, runs them on native subagents, audits the result and returns a delivery report."
+  }
+}

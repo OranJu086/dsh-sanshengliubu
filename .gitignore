@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Local caches produced by ad-hoc npm/npx runs
+.npm-cache/
+package-lock.json
+
+# Locally installed agent skills (not part of the plugin)
+.agents/
+
+# Editor and OS noise
+.DS_Store
+*.log
+
+# skills CLI lockfile (local tooling only)
+skills-lock.json
