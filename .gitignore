@@ -14,3 +14,6 @@ package-lock.json
 
 # skills CLI lockfile (local tooling only)
 skills-lock.json
+
+# Never commit credentials
+.git-token
